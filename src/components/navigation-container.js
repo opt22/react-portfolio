@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styles from './NavigationComponent.css';
 
-class NavigationComponent extends Component {
+export default class NavigationComponent extends Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
@@ -19,11 +18,12 @@ class NavigationComponent extends Component {
         <button>About</button>
         <button>Contact</button>
         <button>Blog</button>
-        <button>AddBlog</button>
-        
+        {true ? <button>AddBlog</button> : null}
+
       </div>
     );
   }
 }
 
-export default NavigationComponent;
+
+
