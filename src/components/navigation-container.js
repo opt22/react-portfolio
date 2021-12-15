@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom'
+
 
 export default class NavigationComponent extends Component {
   static propTypes = {
@@ -14,6 +16,8 @@ export default class NavigationComponent extends Component {
   render() {
     return (
       <div>
+        <NavLink to="/"> Home </NavLink>
+        <NavLink to="/about-me">About</NavLink>
         <button>Home</button>
         <button>About</button>
         <button>Contact</button>
