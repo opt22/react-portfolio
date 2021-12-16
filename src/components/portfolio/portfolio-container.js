@@ -9,10 +9,10 @@ export default class PortfolioContainer extends Component {
       pageTitle: "Constructor Title",
       isLoading: false,
       data : [
-        { title: "First-data", category: "eComerce" },
-        { title: "Second-data", category: "Scheduling" },
-        { title: "Third-data", category: "Enterprize" },
-        { title: "Fourth-data", category: "eComerce" }
+        { title: "First-data", category: "eComerce", slug: "first-d" },
+        { title: "Second-data", category: "Scheduling", slug: "second-d" },
+        { title: "Third-data", category: "Enterprise", slug: "third-d" },
+        { title: "Fourth-data", category: "eComerce", slug: "fourth-d" }
       ]
     }
 
@@ -22,12 +22,12 @@ export default class PortfolioContainer extends Component {
 
   PortfolioItems(){
     return this.state.data.map(i => {
-      return < PortfolioItem title = {i.title} url={"google.com"} />;
+      return <PortfolioItem title = {i.title} url = {"google.com"} slug={i.slug} />;
     })
   }
 
   TEST = () => {
-    console.log("asdf");
+    console.log("asdf")
   }
 
   handleFilter(ipt){
@@ -50,7 +50,7 @@ export default class PortfolioContainer extends Component {
         {this.PortfolioItems()}
         <button onClick={() => this.handleFilter('eComerce')}>eCommerce</button>
         <button onClick={() => this.handleFilter('Scheduling')}>Scheduling</button>
-        <button onClick={() => this.handleFilter('Enterprize')}>Enterprize</button>
+        <button onClick={() => this.handleFilter('Enterprise')}>Enterprise</button>
 
         <h2>End Portfolio Container</h2>
       </div>
