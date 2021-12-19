@@ -10,24 +10,22 @@ export default class PortfolioContainer extends Component {
     this.state = {
       pageTitle: "Constructor Title",
       isLoading: false,
-      data : [
-        { title: "First-data", category: "eComerce", slug: "first-d" },
-        { title: "Second-data", category: "Scheduling", slug: "second-d" },
-        { title: "Third-data", category: "Enterprise", slug: "third-d" },
-        { title: "Fourth-data", category: "eComerce", slug: "fourth-d" }
-      ]
+      data : []
     }
     console.log("Portfolio Container has rendered");
     this.handleFilter = this.handleFilter.bind(this);
-    this.getPortfolioItems = this.getPortfolioItems.bind(this);
+    //removed bind for this.getPortfolioItems
   }
 
   getPortfolioItems(){
     axios
       .get('https://opt1.devcamp.space/portfolio/portfolio_items')
-      .then(response => {
+      .then(res => {
         // handle success
-        console.log(response);
+        console.log("res data", res);
+        this.setState({
+          data: res.data.portfolio_items
+        })
       })
       .catch(error => {
         // handle error
@@ -37,10 +35,12 @@ export default class PortfolioContainer extends Component {
         // always executed
       });
   }
-
+  
   PortfolioItems(){
+    //Data that we we'll need:
     return this.state.data.map(i => {
-      return <PortfolioItem title = {i.title} url = {"google.com"} slug={i.slug} />;
+      console.log("item data", i);
+      return <PortfolioItem title = {i.name} url = {i.url} slug={i.id} description = {i.description} key = {i.id} />;
     })
   }
 
@@ -56,8 +56,16 @@ export default class PortfolioContainer extends Component {
     })
   }
 
+  componentDidMount() {
+    this.getPortfolioItems();
+    console.log(this.state.data);
+    console.log(this.state.data);
+    console.log(this.state.data);
+    console.log(this.state.data);
+    console.log(this.state.data);
+  }
+
   render() {
-  this.getPortfolioItems();
     if (this.state.isLoading) {
       return <div>Loading...</div>
     }
