@@ -14,7 +14,6 @@ export default class PortfolioContainer extends Component {
     }
     console.log("Portfolio Container has rendered");
     this.handleFilter = this.handleFilter.bind(this);
-    //removed bind for this.getPortfolioItems
   }
 
   getPortfolioItems(){
@@ -37,15 +36,20 @@ export default class PortfolioContainer extends Component {
   }
   
   PortfolioItems(){
-    //Data that we we'll need:
+    //
+    //column_names_merged_with_images" ]
+    //
     return this.state.data.map(i => {
       console.log("item data", i);
-      return <PortfolioItem title = {i.name} url = {i.url} slug={i.id} description = {i.description} key = {i.id} />;
+      console.log("item keys", Object.keys(i));
+      return <PortfolioItem 
+        key = {i.id}
+        item={i}
+        />;
     })
   }
 
   TEST = () => {
-    console.log("asdf")
   }
 
   handleFilter(ipt){
@@ -58,11 +62,6 @@ export default class PortfolioContainer extends Component {
 
   componentDidMount() {
     this.getPortfolioItems();
-    console.log(this.state.data);
-    console.log(this.state.data);
-    console.log(this.state.data);
-    console.log(this.state.data);
-    console.log(this.state.data);
   }
 
   render() {
