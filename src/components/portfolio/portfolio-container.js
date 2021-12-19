@@ -1,10 +1,12 @@
 import React, { Component }  from "react"
+import axios from 'axios';
+
 import PortfolioItem from "./portfolio-item.js"
 
 export default class PortfolioContainer extends Component {
-  constructor() {
-    super()
 
+  constructor() {
+    super();
     this.state = {
       pageTitle: "Constructor Title",
       isLoading: false,
@@ -15,9 +17,25 @@ export default class PortfolioContainer extends Component {
         { title: "Fourth-data", category: "eComerce", slug: "fourth-d" }
       ]
     }
-
     console.log("Portfolio Container has rendered");
     this.handleFilter = this.handleFilter.bind(this);
+    this.getPortfolioItems = this.getPortfolioItems.bind(this);
+  }
+
+  getPortfolioItems(){
+    axios
+      .get('https://opt1.devcamp.space/portfolio/portfolio_items')
+      .then(response => {
+        // handle success
+        console.log(response);
+      })
+      .catch(error => {
+        // handle error
+        console.log(error);
+      })
+      .then( {
+        // always executed
+      });
   }
 
   PortfolioItems(){
@@ -39,9 +57,11 @@ export default class PortfolioContainer extends Component {
   }
 
   render() {
+  this.getPortfolioItems();
     if (this.state.isLoading) {
       return <div>Loading...</div>
     }
+
     return (
       <div>
         <h2>Portfolio Container</h2>
@@ -51,7 +71,6 @@ export default class PortfolioContainer extends Component {
         <button onClick={() => this.handleFilter('eComerce')}>eCommerce</button>
         <button onClick={() => this.handleFilter('Scheduling')}>Scheduling</button>
         <button onClick={() => this.handleFilter('Enterprise')}>Enterprise</button>
-
         <h2>End Portfolio Container</h2>
       </div>
     );

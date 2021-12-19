@@ -1,0 +1,39 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/dev/projects/bootcamp/react/portfolio/src/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20210905.0/
+.app	style/main.scss	/^.app {$/;"	c
+AnonymousFunction07083d300100	components/portfolio/portfolio-detail.js	/^export default function(props){$/;"	f
+AnonymousFunction29be84d00100	components/pages/contact.js	/^export default function(){$/;"	f
+AnonymousFunction4fc20ead0100	components/pages/home.js	/^export default function(){$/;"	f
+AnonymousFunction7b0a72080100	components/pages/blog.js	/^export default function(){$/;"	f
+AnonymousFunctiona61cba490100	components/portfolio/no-match.js	/^export default function(){$/;"	f
+AnonymousFunctionef73383f0100	components/pages/about.js	/^export default function() {$/;"	f
+App	components/app.js	/^export default class App extends Component {$/;"	c
+NavigationComponent	components/navigation-container.js	/^export default class NavigationComponent extends Component {$/;"	c
+PortfolioContainer	components/portfolio/portfolio-container.js	/^export default class PortfolioContainer extends Component {$/;"	c
+PortfolioItems	components/portfolio/portfolio-container.js	/^  PortfolioItems(){$/;"	m	class:PortfolioContainer
+TEST	components/portfolio/portfolio-container.js	/^  TEST = () => {$/;"	M	class:PortfolioContainer
+constructor	components/navigation-container.js	/^  constructor(props) {$/;"	m	class:NavigationComponent
+constructor	components/portfolio/portfolio-container.js	/^  constructor() {$/;"	m	class:PortfolioContainer
+createStoreWithMiddleware	bootstrap.js	/^const createStoreWithMiddleware = applyMiddleware()(createStore);$/;"	C
+data	components/portfolio/portfolio-container.js	/^      data : [$/;"	p	class:super.state
+handleFilter	components/portfolio/portfolio-container.js	/^  handleFilter(ipt){$/;"	m	class:PortfolioContainer
+isLoading	components/portfolio/portfolio-container.js	/^      isLoading: false,$/;"	p	class:super.state
+main	bootstrap.js	/^function main() {$/;"	f
+pageTitle	components/portfolio/portfolio-container.js	/^      pageTitle: "Constructor Title",$/;"	p	class:super.state
+propTypes	components/navigation-container.js	/^  static propTypes = {$/;"	M	class:NavigationComponent
+render	components/app.js	/^  render() {$/;"	m	class:App
+render	components/navigation-container.js	/^  render() {$/;"	m	class:NavigationComponent
+render	components/portfolio/portfolio-container.js	/^  render() {$/;"	m	class:PortfolioContainer
+rootReducer	reducers/index.js	/^const rootReducer = combineReducers({$/;"	C
+slug}	components/portfolio/portfolio-item.js	/^      <Link to={`\/portfolio\/${props.slug}`}>SomeLink<\/Link>$/;"	M	class:somecomp.AnonymousClassfdd2098c0101./portfolio/${props
+somecomp	components/portfolio/portfolio-item.js	/^export default function somecomp (props) {$/;"	f
+state	components/portfolio/portfolio-container.js	/^    super()$/;"	c	class:super

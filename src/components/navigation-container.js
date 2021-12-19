@@ -18,12 +18,13 @@ export default class NavigationComponent extends Component {
       <div>
         <NavLink to="/"> Home </NavLink>
         <NavLink to="/about-me">About</NavLink>
+        <NavLink to="/blog">Blog</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
         <button>Home</button>
         <button>About</button>
         <button>Contact</button>
         <button>Blog</button>
-        {true ? <button>AddBlog</button> : null}
-
+        {/* {true ? <button>AddBlog</button> : null} */}
       </div>
     );
   }
