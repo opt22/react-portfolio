@@ -8,7 +8,7 @@ export default class PortfolioContainer extends Component {
   constructor() {
     super();
     this.state = {
-      pageTitle: "Constructor Title",
+      pageTitle: "Constructor Start",
       isLoading: false,
       data : []
     }
@@ -44,7 +44,9 @@ export default class PortfolioContainer extends Component {
       console.log("item keys", Object.keys(i));
       return <PortfolioItem 
         key = {i.id}
+        
         item={i}
+
         />;
     })
   }
@@ -71,14 +73,26 @@ export default class PortfolioContainer extends Component {
 
     return (
       <div>
-        <h2>Portfolio Container</h2>
-        <h2>Portfolio items go here...</h2>
-        <h2>{this.state.pageTitle}</h2>
-        {this.PortfolioItems()}
-        <button onClick={() => this.handleFilter('eComerce')}>eCommerce</button>
-        <button onClick={() => this.handleFilter('Scheduling')}>Scheduling</button>
-        <button onClick={() => this.handleFilter('Enterprise')}>Enterprise</button>
-        <h2>End Portfolio Container</h2>
+        <h3>Portfolio ContainerStart</h3>
+        <h4>{this.state.pageTitle}</h4>
+
+        <div className="portfolio-items-wrapper">
+          <button className="btn" 
+            onClick={() => this.handleFilter('eComerce')}>eCommerce
+          </button>
+
+          <button className="btn" 
+            onClick={() => this.handleFilter('Scheduling')}>Scheduling
+          </button>
+
+          <button className="btn" 
+            onClick={() => this.handleFilter('Enterprise')}>Enterprise
+          </button>
+
+          {this.PortfolioItems()}
+        </div>
+
+        <h2>Portfolio Container End</h2>
       </div>
     );
   }
