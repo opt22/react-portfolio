@@ -13,9 +13,25 @@ import NoMatch from './portfolio/no-match.js'
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 export default class App extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
+    
   }
+
+  handleSuccessfulLogin() {
+    this.setState({
+      loggedInStatus: "LOGGED_IN"
+    })
+  }
+
+  handleUnSuccessfulLogin() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN"
+    })
+  }
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
   render() {
     return (
       <div className='container'>
@@ -27,6 +43,10 @@ export default class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about-me" component={About} />
+            /* <Route path="/auth" component={Auth} /> */
+
+             <Route path="/auth" component={Auth} /> */
+
             <Route path="/auth" component={Auth} />
             <Route path="/contact" component={Contact} />
             <Route path="/blog" component={Blog} />
