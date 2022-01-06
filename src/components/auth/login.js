@@ -17,7 +17,6 @@ export default class Login extends Component {
 /* ===================================================================== */
 
   handleChange(event) {
-    console.log("handle change",  event);
     this.setState({
       [event.target.name]: event.target.value,
       errorText: ""
@@ -37,30 +36,25 @@ export default class Login extends Component {
         withCredentials: true
       }).then(response => {
         if (response.data.status === 'created'){
-        console.log("okey dokey");
-        console.log("response", response);
+          this.props.handleSuccessfulAuth();
       }else {
         this.setState({
           errorText: "wrong email or password"
         })
+          this.props.handleUnSuccessfulAuth();
       }
       }).catch(error => {
-        console.log("error:wrong or missing api endpoint");
         this.setState({
           errorText: `"error:wrong or missing api endpoint: ${error}"`
         })
       })
 
-    console.log("handle submit",  event);
     /* event.preventDefault(); */
     event.preventDefault();
-
-    console.log(event.target.password.value);
   }
 
 
 /* ===================================================================== */
-
   render() {
     return (
       <div>
@@ -88,7 +82,6 @@ export default class Login extends Component {
             <button type="submit">Login</button>
           </div>
         </form>
-
       </div>
     );
   }

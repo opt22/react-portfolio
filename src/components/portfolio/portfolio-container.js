@@ -12,7 +12,6 @@ export default class PortfolioContainer extends Component {
       isLoading: false,
       data : []
     }
-    console.log("Portfolio Container has rendered");
     this.handleFilter = this.handleFilter.bind(this);
   }
 
@@ -21,7 +20,6 @@ export default class PortfolioContainer extends Component {
       .get('https://opt1.devcamp.space/portfolio/portfolio_items')
       .then(res => {
         // handle success
-        console.log("res data", res);
         this.setState({
           data: res.data.portfolio_items
         })
@@ -40,8 +38,6 @@ export default class PortfolioContainer extends Component {
     //column_names_merged_with_images" ]
     //
     return this.state.data.map(i => {
-      console.log("item data", i);
-      console.log("item keys", Object.keys(i));
       return <PortfolioItem 
         key = {i.id}
         
