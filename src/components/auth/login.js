@@ -21,9 +21,7 @@ export default class Login extends Component {
       [event.target.name]: event.target.value,
       errorText: ""
     })
-
   }
-
   handleSubmit(event) {
     axios.post("https://api.devcamp.space/sessions",
       {
