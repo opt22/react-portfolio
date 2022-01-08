@@ -111,7 +111,11 @@ export default class App extends Component {
             <Route path="/auth" component={Auth} />
             <Route path="/contact" component={Contact} />
             <Route path="/blog" component={Blog} />
-            <Route path="/portfolio-manager" component={PortfolioManager} /> 
+            <Route 
+              key="portfolio-manager"
+              path="/portfolio-manager" 
+              component={PortfolioManager} 
+            /> 
 
             {/********AUTHORIZED LINKS ROUTE GUARD*******/}
             {this.state.loggedInStatus === "LOGGED_IN" ? (

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class PortfolioForm extends Component {
 
@@ -22,15 +23,37 @@ export default class PortfolioForm extends Component {
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
   //TODO
   //connect inputs to state
+  buildForm() {
+    let formData = new FormData();
+    formData.append("portfolio_item[name]",this.state.name);
+    formData.append("portfolio_item[description]",this.state.description);
+    formData.append("portfolio_item[position]",this.state.position);
+    formData.append("portfolio_item[url]",this.state.url);
+    formData.append("portfolio_item[category]",this.state.category);
+
+    return formData;
+  }
   
 
   handleChange(event) {
     console.log("handle change", event);
     this.setState({
       [event.target.name]: event.target.value
-  })
+    })
   }
+
   handleSubmit(event) {
+    axios.post(
+      "https://opt1.devcamp.space/portfolio/portfolio_items",
+      this.buildForm(), 
+      { withCredentials : true }
+    ).then(
+      response => {
+        console.log("response: ",response);
+      }).catch(error => {
+        console.log("portfolio from handleSubmit error:", error);
+      })
+
     event.preventDefault();
   }
 
@@ -80,8 +103,8 @@ export default class PortfolioForm extends Component {
             <input  
               type="text"
               name="description"
-              placeholder="Portfolio Item Name"
-              value={this.state.name}
+              placeholder="description"
+              value={this.state.description}
               onChange={this.handleChange}
             />
           </div>
