@@ -9,7 +9,7 @@ export default class PortfolioForm extends Component {
     this.state = {
       name: "",
       description: "",
-      category: "",
+      category: "eCommerce",
       position: "",
       url: "",
       thumb_image: "",
@@ -20,6 +20,7 @@ export default class PortfolioForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
   //TODO
   //connect inputs to state
@@ -49,7 +50,9 @@ export default class PortfolioForm extends Component {
       { withCredentials : true }
     ).then(
       response => {
+        console.log("This is an api response");
         console.log("response: ",response);
+        this.props.handleSuccessfulFormSubmission(response.data.portfolio_item);
       }).catch(error => {
         console.log("portfolio from handleSubmit error:", error);
       })
@@ -90,17 +93,19 @@ export default class PortfolioForm extends Component {
               value={this.state.position}
               onChange={this.handleChange}
             />          
-            <input  
-              type="text"
+            <select  
               name="category"
-              placeholder="category"
               value={this.state.category}
               onChange={this.handleChange}
-            />          
+            >
+              <option value="eCommerce" >eCommerce</option>
+              <option value="Scheduling" >Scheduling</option>
+              <option value="Enterprise" >Enterprise</option>
+            </select>          
           </div>
 
           <div>
-            <input  
+            <textarea  
               type="text"
               name="description"
               placeholder="description"

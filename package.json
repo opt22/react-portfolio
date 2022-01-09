@@ -10,7 +10,6 @@
     "precommit": "eslint src",
     "prod": "NODE_ENV=production node server.js"
   },
-
   "repository": {
     "type": "git",
     "url": "git@github.com:bottega-code-school/js-builder.git"
@@ -31,7 +30,6 @@
   "bugs": {
     "url": "https://github.com/bottega-code-school/js-builder/issues"
   },
-
   "homepage": "https://github.com/bottega-code-school/js-builder",
   "dependencies": {
     "ajv": "6.12.0",

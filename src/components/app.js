@@ -18,7 +18,7 @@ export default class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      loggedInStatus: "NOT_LOGGED_IN"
+      loggedInStatus: "LOGGED_IN"
     }
     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
     this.handleUnSuccessfulLogin = this.handleUnSuccessfulLogin.bind(this);
@@ -77,6 +77,11 @@ export default class App extends Component {
   authorizedPages() {
     return [ 
       //*<Route path="/PortfolioManager" component={PortfolioManager} /> *//
+            <Route 
+              key="portfolio-manager"
+              path="/portfolio-manager" 
+              component={PortfolioManager} 
+            /> 
     ]
   }
       
@@ -108,14 +113,8 @@ export default class App extends Component {
                 )}
             />
 
-            <Route path="/auth" component={Auth} />
             <Route path="/contact" component={Contact} />
             <Route path="/blog" component={Blog} />
-            <Route 
-              key="portfolio-manager"
-              path="/portfolio-manager" 
-              component={PortfolioManager} 
-            /> 
 
             {/********AUTHORIZED LINKS ROUTE GUARD*******/}
             {this.state.loggedInStatus === "LOGGED_IN" ? (

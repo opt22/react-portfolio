@@ -25,7 +25,14 @@ handleSuccessfulFormSubmission(portfolioItem) {
   //TODO
   // update the portfolioItems state
   // and add the portfolioItem to the list
-  console.log("hi");
+  console.log("handleSuccessfulFormSubmission after api call");
+  console.log("check portfolioItem");
+  console.log(portfolioItem);
+  console.log("end check portfolioItem");
+  this.setState({
+    portfolioItems: [portfolioItem].concat( this.state.portfolioItems )
+  })
+
 }
 
 handleFormSubmissionError(error) {
