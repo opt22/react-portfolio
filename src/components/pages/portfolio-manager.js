@@ -22,6 +22,18 @@ this.handleDeleteClick = this.handleDeleteClick.bind(this)
 
 handleDeleteClick(portfolioItem) {
   console.log("handleDeleteClick", portfolioItem);
+  axios.delete(`https://api.devcamp.space/portfolio/portfolio_items/${portfolioItem.id}`, 
+  {withCredentials: true}
+  ).then(response => {
+    console.log("responsefromdelete", response);
+    this.setState({
+      portfolioItems: this.state.portfolioItems.filter(item => {
+        return item.id !== portfolioItem.id;
+      })
+    })
+  }).catch(error => {
+    console.log("handleDeleteClick error", error)
+  });
 }
 
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
