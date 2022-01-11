@@ -22,7 +22,7 @@ export default class PortfolioForm extends Component {
       logo:"",
       editMode: false,
       apiUrl:"https://opt1.devcamp.space/portfolio/portfolio_items",
-      apiAction: 'post'
+      apiAction: 'post',
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -39,6 +39,9 @@ export default class PortfolioForm extends Component {
   }
 
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+testlog(){
+  console.log("testing");
+}
   componentDidUpdate() {
     if (Object.keys(this.props.portfolioToEdit).length > 0){
       const{
@@ -245,9 +248,14 @@ export default class PortfolioForm extends Component {
               onChange={this.handleChange}
             />
           </div>
-            <div className="image-uploaders three-column">
-              {this.state.thumb_image && this.state.editMode ? (
+            <div className="image-uploaders">
+              {console.log("images")}
+              {console.log("images")}
+              {console.log("images")}
+              {this.state.thumb_image && this.state.editMode ? ( 
+                  <div className="portfolio-manager-image-wrapper">
                   <img src={this.state.thumb_image} />
+                  </div>
               ):(
               <DropzoneComponent
                 ref={this.thumbRef}
@@ -261,6 +269,11 @@ export default class PortfolioForm extends Component {
               </DropzoneComponent>
               )}
 
+              {this.state.banner_image && this.state.editMode ? (
+                <div className="portfolio-manager-image-wrapper">
+                  <img src={this.state.banner_image} />
+                </div>
+              ):(
               <DropzoneComponent
                 ref={this.bannerRef}
                 config={this.componentConfig()}
@@ -271,7 +284,13 @@ export default class PortfolioForm extends Component {
                   Banner
                 </div>
               </DropzoneComponent>
+              )}
 
+              {this.state.logo && this.state.editMode ? (
+                <div className="portfolio-manager-image-wrapper">
+                  <img src={this.state.logo} />
+                </div>
+              ):(
               <DropzoneComponent
                 ref={this.logoRef}
                 config={this.componentConfig()}
@@ -282,6 +301,7 @@ export default class PortfolioForm extends Component {
                   Logo
                 </div>
               </DropzoneComponent>
+              )}
 
             </div>
 
