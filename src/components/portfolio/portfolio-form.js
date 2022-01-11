@@ -128,7 +128,6 @@ export default class PortfolioForm extends Component {
 
     return formData;
   }
-  
 
   handleChange(event) {
     console.log("handle change", event);
@@ -149,11 +148,18 @@ export default class PortfolioForm extends Component {
   //    "https://opt1.devcamp.space/portfolio/portfolio_items",
   //    this.buildForm(), 
   //    { withCredentials : true }
+    
     .then(
       response => {
+        if(this.state.editMode) {
+          this.props.handleEditFormSubmission();
+        } else {
+          this.props.handleNewFormSubmission(response.data.portfolio_item);
+        }
+
         console.log("This is an api response");
         console.log("response: ",response);
-        this.props.handleSuccessfulFormSubmission(response.data.portfolio_item);
+        //this.props.handleSuccessfulFormSubmission(response.data.portfolio_item);
 
         this.setState({
           name: "",
