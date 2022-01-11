@@ -19,7 +19,10 @@ export default class PortfolioForm extends Component {
       url: "",
       thumb_image: "",
       banner_image: "",
-      logo:""
+      logo:"",
+      editMode: false,
+      apiUrl:"https://opt1.devcamp.space/portfolio/portfolio_items",
+      apiAction: 'post'
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -37,8 +40,6 @@ export default class PortfolioForm extends Component {
 
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
   componentDidUpdate() {
-    console.log("editiong");
-    console.log(this.props.portfolioToEdit);
     if (Object.keys(this.props.portfolioToEdit).length > 0){
       const{
         id,
@@ -60,7 +61,10 @@ export default class PortfolioForm extends Component {
         description: description || "",
         category: category || "eCommerce",
         position: position || "",
-        url: url || ""
+        url: url || "",
+        editMode: true,
+        apiUrl: `https://opt1.devcamp.space/portfolio/portfolio_items/${id}`,
+        apiAction: 'patch'
       });
 
     }
@@ -134,11 +138,18 @@ export default class PortfolioForm extends Component {
   }
 
   handleSubmit(event) {
-    axios.post(
-      "https://opt1.devcamp.space/portfolio/portfolio_items",
-      this.buildForm(), 
-      { withCredentials : true }
-    ).then(
+    axios({
+      method: this.state.apiAction,
+      url:this.state.apiUrl,
+      data: this.buildForm(),
+      withCredentials: true
+    })
+
+  //  axios.post(
+  //    "https://opt1.devcamp.space/portfolio/portfolio_items",
+  //    this.buildForm(), 
+  //    { withCredentials : true }
+    .then(
       response => {
         console.log("This is an api response");
         console.log("response: ",response);
