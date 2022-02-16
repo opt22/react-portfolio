@@ -22,7 +22,7 @@ export default class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      loggedInStatus: "LOGGED_IN"
+      loggedInStatus: "NOT_LOGGED_IN"
     }
     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
     this.handleUnSuccessfulLogin = this.handleUnSuccessfulLogin.bind(this);
@@ -100,12 +100,11 @@ export default class App extends Component {
             loggedInStatus={this.state.loggedInStatus}
             handleSuccessfulLogout={this.handleSuccessfulLogout}
             />
-            <h1 style= {{ color: "grey"}} >App Start</h1>
-            <h2>{this.state.loggedInStatus}</h2>
-          </div>
+
           <Switch>
+
             <Route exact path="/" component={Home} />
-            <Route path="/about-me" component={About} />
+
             <Route 
               path="/auth" 
                 render={props => (
@@ -117,18 +116,27 @@ export default class App extends Component {
                 )}
             />
 
+            <Route path="/about-me" component={About} />
+
             <Route path="/contact" component={Contact} />
-            <Route path="/blog" component={Blog} />
+
+            {/**<Route path="/blog" component={Blog} />*/}
 
             {/********AUTHORIZED LINKS ROUTE GUARD*******/}
-            {this.state.loggedInStatus === "LOGGED_IN" ? (
-              this.authorizedPages()
-            ): null}
 
-            <Route exact path="/portfolio/:slug" component={PortfolioDetail} />
+            {this.state.loggedInStatus === "LOGGED_IN" 
+              ? this.authorizedPages()
+              : null}
+
+            <Route 
+              exact 
+              path="/portfolio/:slug" 
+              component={PortfolioDetail} 
+            />
+
             <Route component={NoMatch} />
           </Switch>
-            <h1 style= {{ color: "grey"}} >App End</h1>
+          </div>
        </Router>
       </div>
     );

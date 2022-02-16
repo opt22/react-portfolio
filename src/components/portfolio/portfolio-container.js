@@ -8,7 +8,7 @@ export default class PortfolioContainer extends Component {
   constructor() {
     super();
     this.state = {
-      pageTitle: "Constructor Start",
+      pageTitle: "Portfolio Categories",
       isLoading: false,
       data : []
     }
@@ -69,7 +69,6 @@ export default class PortfolioContainer extends Component {
 
     return (
       <div>
-        <h3>Portfolio ContainerStart</h3>
         <h4>{this.state.pageTitle}</h4>
 
         <div className="portfolio-items-wrapper">
@@ -87,8 +86,6 @@ export default class PortfolioContainer extends Component {
 
           {this.PortfolioItems()}
         </div>
-
-        <h2>Portfolio Container End</h2>
       </div>
     );
   }

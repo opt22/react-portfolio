@@ -36,6 +36,9 @@ const NavigationComponent = props => {
   return(
     <div className="nav-wrapper">
       <div className="left-side">
+        <div className="logo-wrapper">
+          <img src="/static/assets/images/logo.png" alt="  Logo  " />
+        </div>
         <div className="nav-link-wrapper">
           <NavLink exact to="/" activeClassName="nav-link-active">Home</NavLink>
         </div>
@@ -46,9 +49,10 @@ const NavigationComponent = props => {
           <NavLink to="/contact" activeClassName="nav-link-active">Contact</NavLink>
         </div>
 
-        <div className="nav-link-wrapper">
+        {/*<div className="nav-link-wrapper">
           <NavLink to="/blog" activeClassName="nav-link-active">Blog</NavLink>
         </div>
+        */}
 
         {/*<div className="nav-link-wrapper">
           <NavLink to="/portfolio-manager" activeClassName="nav-link-active">Portfolio Manager</NavLink>

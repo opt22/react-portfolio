@@ -1,7 +1,9 @@
 .portfolio-items-wrapper {
+  margin-right: 5%;
+  margin-left: 5%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  border: 2px solid red;
+  border: 2px solid $nav_highlight;
 
   .img-text-wrapper {
     position: absolute;

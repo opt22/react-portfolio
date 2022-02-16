@@ -1,5 +1,5 @@
 .nav-wrapper {
-  background: yellow;
+  background: $nav_background;
   display: flex;
   justify-content: space-between;
   padding: 30px;
@@ -21,8 +21,10 @@
   }
 }
 
+.logo-wrapper{
+  margin-right: 20px;
+}
 .nav-link-wrapper {
-  background: pink;
   height: 20px;
   border-bottom: 1px solid transparent;
   transition: 0.3s ease-in-out;
@@ -34,17 +36,17 @@
     color: $grey;
     text-decoration: none;
     &:hover {
-      color: black;
+      color: $nav_highlight;
     }
   }
 
   &:hover {
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid $nav_highlight;
   }
 
   .nav-link-active {
-    color: black;
-    border-bottom: 3px solid black;
+    color: $nav_highlight;
+    border-bottom: 3px solid $nav_highlight;
   }
 
 }
