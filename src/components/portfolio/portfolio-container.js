@@ -7,13 +7,26 @@ export default class PortfolioContainer extends Component {
 
   constructor() {
     super();
+
     this.state = {
-      pageTitle: "Portfolio Categories",
+      pageTitle: " ",
       isLoading: false,
       data : []
     }
+
     this.handleFilter = this.handleFilter.bind(this);
+
   }
+
+  handleFilter(filter){
+        console.log(this.state.data);
+    this.setState({
+      data: this.state.data.filter(item => {
+        return item.category === filter
+      })
+    })
+        console.log(this.state.data);
+  }   
 
   getPortfolioItems(){
     axios
@@ -33,28 +46,14 @@ export default class PortfolioContainer extends Component {
       });
   }
   
+
+
   PortfolioItems(){
-    //
-    //column_names_merged_with_images" ]
-    //
     return this.state.data.map(i => {
       return <PortfolioItem 
         key = {i.id}
-        
-        item={i}
-
+        item = {i}
         />;
-    })
-  }
-
-  TEST = () => {
-  }
-
-  handleFilter(ipt){
-    this.setState({
-      data: this.state.data.filter(item => {
-        return item.category === ipt
-      })
     })
   }
 
@@ -73,15 +72,18 @@ export default class PortfolioContainer extends Component {
 
         <div className="portfolio-items-wrapper">
           <button className="btn" 
-            onClick={() => this.handleFilter('eComerce')}>eCommerce
+            onClick={() => this.handleFilter('eComerce')}>
+            eCommerce
           </button>
 
           <button className="btn" 
-            onClick={() => this.handleFilter('Scheduling')}>Scheduling
+            onClick={() => this.handleFilter('Scheduling')}>
+            Scheduling
           </button>
 
           <button className="btn" 
-            onClick={() => this.handleFilter('Enterprise')}>Enterprise
+            onClick={() => this.handleFilter('Enterprise')}>
+            Enterprise
           </button>
 
           {this.PortfolioItems()}

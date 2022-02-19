@@ -12,6 +12,7 @@ import Blog from './pages/blog.js'
 import PortfolioManager from './pages/portfolio-manager.js'
 import Contact from './pages/contact.js'
 import PortfolioDetail from './portfolio/portfolio-detail.js'
+import PortfolioItem from './portfolio/portfolio-item.js'
 import Auth from './pages/auth'
 import NoMatch from './portfolio/no-match.js'
                             
@@ -27,6 +28,7 @@ export default class App extends Component {
     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
     this.handleUnSuccessfulLogin = this.handleUnSuccessfulLogin.bind(this);
     this.handleSuccessfulLogout = this.handleSuccessfulLogout.bind(this);
+    this.cacheCurrentItem = this.cacheCurrentItem.bind(this);
   }
 
   handleSuccessfulLogin() {
@@ -45,6 +47,17 @@ export default class App extends Component {
     this.setState({
       loggedInStatus: "NOT_LOGGED_IN"
     })
+  }
+
+  cacheCurrentItem(itemData, itemId) {
+    console.log(itemData);
+    console.log(itemId);
+    {/*
+      this.setState(
+      {itemId: itemData}
+    )
+    */}
+
   }
 
   checkLoginStatus(){
@@ -88,10 +101,11 @@ export default class App extends Component {
             /> 
     ]
   }
-      
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
   render() {
+  console.log(this);
     return (
       <div className='container'>
         <Router>
@@ -103,7 +117,10 @@ export default class App extends Component {
 
           <Switch>
 
-            <Route exact path="/" component={Home} />
+            <Route 
+              exact 
+              path="/" 
+              component={Home} />
 
             <Route 
               path="/auth" 
@@ -117,7 +134,6 @@ export default class App extends Component {
             />
 
             <Route path="/about-me" component={About} />
-
             <Route path="/contact" component={Contact} />
 
             {/**<Route path="/blog" component={Blog} />*/}
@@ -131,12 +147,13 @@ export default class App extends Component {
             <Route 
               exact 
               path="/portfolio/:slug" 
-              component={PortfolioDetail} 
+              component={PortfolioDetail}
             />
 
             <Route component={NoMatch} />
+
           </Switch>
-          </div>
+        </div>
        </Router>
       </div>
     );

@@ -1,11 +1,24 @@
 .nav-wrapper {
   background: $nav_background;
-  display: flex;
+  display: grid;
+  grid-template-columns: 200px 2fr 2fr;
   justify-content: space-between;
-  padding: 30px;
+  padding: 10px;
+
+  .logo-wrapper{
+    display: flex;
+    align-items: center;
+    width: 140px;
+    height: 60px;
+    margin-right: 60px;
+    img{
+      height: 80px;
+    }
+  }
 
   .left-side {
     display: flex;
+    align-items: flex-end;
   }
   .right-side {
     a {
@@ -21,9 +34,6 @@
   }
 }
 
-.logo-wrapper{
-  margin-right: 20px;
-}
 .nav-link-wrapper {
   height: 20px;
   border-bottom: 1px solid transparent;

@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { withRouter } from 'react-router';
-import { NavLink } from 'react-router-dom'
-
+import { NavLink } from 'react-router-dom';
+import { navLogo } from '../../static/assets/images/logo.png';
 
 const NavigationComponent = props => {
   const dynamicLink = (route, linkText) => {
@@ -32,13 +32,13 @@ const NavigationComponent = props => {
       })
   }
 
-
   return(
     <div className="nav-wrapper">
-      <div className="left-side">
         <div className="logo-wrapper">
-          <img src="/static/assets/images/logo.png" alt="  Logo  " />
+          <img src={require('../../static/assets/images/logo.png')} alt=""/>
         </div>
+      <div className="left-side">
+
         <div className="nav-link-wrapper">
           <NavLink exact to="/" activeClassName="nav-link-active">Home</NavLink>
         </div>
@@ -66,7 +66,6 @@ const NavigationComponent = props => {
       </div>
 
       <div className="right-side">
-        RIGHT SIDE
         {props.loggedInStatus === "LOGGED_IN" ? (
             <a className="logout-button" onClick={handleSignOut}>
         <FontAwesomeIcon icon="sign-out-alt" />
