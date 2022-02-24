@@ -41,6 +41,7 @@ export default class PortfolioItem extends Component {
         onMouseEnter={() => this.handleMouseEnter()}
         onMouseLeave={() => this.handleMouseLeave()}
       >
+
         <div 
           className={"portfolio-img-background " + this.state.portfolioItemClass}
           style={{
@@ -48,15 +49,18 @@ export default class PortfolioItem extends Component {
           }}
         />
 
+        <div className="portfolio-item-wrapper-spacer"/>
+
         <div className="img-text-wrapper">
           <div className="logo-wrapper">
             <img src={logo_url} alt="logo" />
           </div>
-          
-          <div className="subtitle">{description}</div>
         </div>
-        <div>{name}</div>
-        <div>{description}</div>
+
+        <div className="subtitle">{description}</div>
+        {/*<div>{name}</div>*/}
+        {/*<div>{description}</div>*/}
+
       </div>          
     </Link>
     )

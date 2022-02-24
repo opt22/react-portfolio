@@ -45,8 +45,6 @@ export default class PortfolioContainer extends Component {
         // always executed
       });
   }
-  
-
 
   PortfolioItems(){
     return this.state.data.map(i => {
@@ -71,20 +69,6 @@ export default class PortfolioContainer extends Component {
         <h4>{this.state.pageTitle}</h4>
 
         <div className="portfolio-items-wrapper">
-          <button className="btn" 
-            onClick={() => this.handleFilter('eComerce')}>
-            eCommerce
-          </button>
-
-          <button className="btn" 
-            onClick={() => this.handleFilter('Scheduling')}>
-            Scheduling
-          </button>
-
-          <button className="btn" 
-            onClick={() => this.handleFilter('Enterprise')}>
-            Enterprise
-          </button>
 
           {this.PortfolioItems()}
         </div>

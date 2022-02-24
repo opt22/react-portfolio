@@ -1,41 +1,52 @@
 .portfolio-items-wrapper {
+  background-color:black;
   margin-right: 5%;
   margin-left: 5%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   border: 2px solid #007f00;
 
+}
+.portfolio-item-wrapper {
+  position:relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items:center;
+
+  .portfolio-item-wrapper-spacer {
+    position: absolute;
+    height: 90%;
+    width: 90%;
+    border: 2px solid grey;
+  }
+
   .img-text-wrapper {
     position: absolute;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding-left: 100px;
-    padding-right: 100px;
-    flex-direction: column;
+      .logo-wrapper img{
+        width: 100%;
+        height: 90px;
+        margin-bottom: 20px;
+      }
   }
 
   .subtitle {
+    bottom: 0;
+    position: absolute;
     transition: 1s ease-out;
     color: transparent;
-  }
-
-  .img-text-wrapper:hover .subtitle {
-    color: $teal;
-    font-weight: 400;
-  }
-
-  .logo-wrapper img{
-    width: 80px;
-    height: 80px;
+    text-decoration: none;
+    outline:none;
     margin-bottom: 20px;
+    width: 80%;
   }
+
 }
-.portfolio-item-wrapper {
-  position: relative;
+.portfolio-item-wrapper:hover .subtitle {
+  color: grey;
+  font-weight: 400;
 }
+
 .portfolio-img-background {
   transition: .8s;
   background-size: cover;
