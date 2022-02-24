@@ -1,7 +1,11 @@
 {
-  "name": "react-redux-router",
+  "name": "Portfolio",
   "version": "1.0.0",
-  "description": "Basic skeleton codebase for React/Redux/Router applications.",
+  "engines": {
+    "npm":"6.12.1",
+    "node":"12.13.1"
+  },
+  "description": "Portfolio built in React",
   "scripts": {
     "preinstall": "npm set audit false",
     "start": "webpack-dev-server --config webpack/dev.config.js --watch",
