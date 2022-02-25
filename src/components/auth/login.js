@@ -55,11 +55,8 @@ export default class Login extends Component {
   render() {
     return (
       <div>
-        <h1>Form Here</h1>
-        <h3>errors:</h3>
+        <h1>Login</h1>
         <div>{this.state.errorText}</div>
-        <h2>this is le email: {this.state.email}</h2>
-        <h2>this is le pw: {this.state.password}</h2>
         <form onSubmit={this.handleSubmit}>
           <input 
           type="email" 

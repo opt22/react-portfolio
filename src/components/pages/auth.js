@@ -36,7 +36,6 @@ export default class Auth extends Component {
             handleUnSuccessfulAuth={this.handleUnSuccessfulAuth}
           />
         </div>
-        Auth....
       </div>
     );
   }
